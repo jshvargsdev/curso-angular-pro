@@ -1,0 +1,30 @@
+<h1>Dragon Ball</h1>
+<hr />
+
+<section class="rown">
+  <div class="col-12 col-sm-6">
+    <h4>Agregar</h4>
+    <input type="text" class="form-control" placeholder="Nombre:" />
+    <input type="number" class="form-control mt-2" placeholder="Poder:" />
+    <button class="mt-2 btn btn-primary">Guardar</button>
+  </div>
+
+  <hr />
+
+  <div class="col-12 col-sm-6">
+    <h4>Listado</h4>
+    <ol>
+      @for (character of characters(); track character.id) {
+      <li>
+        <span> {{ character.name }} - </span>
+        <strong [class.text-success]="character.power >= 1000">
+          {{ character.power }}
+        </strong>
+        @if (character.isSaiyan) {
+        <span class="text-warning"> - Es Sayayin</span>
+        }
+      </li>
+      }
+    </ol>
+  </div>
+</section>
